@@ -7,8 +7,9 @@ import subway.view.ErrorView;
 import subway.view.MainView;
 
 public class MainController {
-	public static void startMain() {
+	public static void startMain(Scanner scanner) {
 		MainView.displayMainView();
+		inputMain(scanner);
 	}
 
 	public static void inputMain(Scanner scanner) {
