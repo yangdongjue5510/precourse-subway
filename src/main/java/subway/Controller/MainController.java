@@ -27,6 +27,8 @@ public class MainController {
 			StationController.startStation(scanner);
 		} else if (menu.equals(MENU_LINE)) {
 			LineController.startLine(scanner);
+		} else if (menu.equals(MENU_SECTION)) {
+			SectionController.startSection(scanner);
 		}
 	}
 

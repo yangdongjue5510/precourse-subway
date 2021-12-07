@@ -20,4 +20,8 @@ public class Constants {
 		+ "2. 노선 삭제\n"
 		+ "3. 노선 조회\n"
 		+ "B. 돌아가기\n";
+	public static final String MESSAGE_SECTION_MENU = HASH_TAG + " 구간 관리 화면\n"
+		+ "1. 구간 등록\n"
+		+ "2. 구간 삭제\n"
+		+ "B. 돌아가기\n";
 }
