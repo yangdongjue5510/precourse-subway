@@ -5,9 +5,9 @@ import static subway.Constants.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import subway.domain.StationRepository;
 import subway.enums.StationMenu;
 import subway.service.StationService;
+import subway.validChecker.StationValidChecker;
 import subway.view.CommonView;
 import subway.view.ErrorView;
 import subway.view.StationView;
@@ -41,6 +41,10 @@ public class StationController {
 	}
 
 	private static String inputStationName(Scanner scanner) {
-		return scanner.nextLine();
+		String inputLine;
+		do {
+			inputLine = scanner.nextLine();
+		} while(!StationValidChecker.stationNameLengthCheck(inputLine));
+		return inputLine;
 	}
 }
