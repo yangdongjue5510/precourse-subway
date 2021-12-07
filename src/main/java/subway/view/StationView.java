@@ -24,4 +24,8 @@ public class StationView {
 	public static void showStation(Station station) {
 		System.out.println(INFO + station.getName());
 	}
+
+	public static void addStationToLine() {
+		System.out.println("역이름 입력하세요.");
+	}
 }

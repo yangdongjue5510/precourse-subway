@@ -9,7 +9,7 @@ public class MenuValidChecker {
 	public static boolean fourMenuExceptionCheck(String inputLine) {
 		String[] menus = {"1", "2", "3", "B"};
 		try {
-			fourMenuValidCheck(inputLine, menus);
+			menuValidCheck(inputLine, menus);
 			return true;
 		} catch (IllegalArgumentException exception) {
 			ErrorView.menuInputError();
@@ -17,7 +17,18 @@ public class MenuValidChecker {
 		}
 	}
 
-	private static void fourMenuValidCheck(String inputLine, String[] menus) {
+	public static boolean threeMenuValidCheck(String inputLine) {
+		String[] menus = {"1", "2", "B"};
+		try {
+			menuValidCheck(inputLine, menus);
+			return true;
+		} catch (IllegalArgumentException exception) {
+			ErrorView.menuInputError();
+			return false;
+		}
+	}
+
+	private static void menuValidCheck(String inputLine, String[] menus) {
 		if (!containsMenu(inputLine, menus)) {
 			throw new IllegalArgumentException();
 		}
@@ -26,4 +37,6 @@ public class MenuValidChecker {
 	private static boolean containsMenu(String inputLine, String[] menus) {
 		return Arrays.stream(menus).anyMatch(menu -> menu.equals(inputLine));
 	}
+
+
 }

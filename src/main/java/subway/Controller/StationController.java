@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import subway.domain.Station;
-import subway.enums.FourMenu;
+import subway.enums.MenuEnum;
 import subway.service.StationService;
 import subway.validChecker.MenuValidChecker;
 import subway.validChecker.StationValidChecker;
@@ -30,13 +30,13 @@ public class StationController {
 	}
 
 	private static void findMenu(String inputLine, Scanner scanner) {
-		if (inputLine.equals(FourMenu.ADD.getMenuDigit())) {
+		if (inputLine.equals(MenuEnum.ADD.getMenuDigit())) {
 			addStation(scanner);
-		} else if (inputLine.equals(FourMenu.DELETE.getMenuDigit())) {
+		} else if (inputLine.equals(MenuEnum.DELETE.getMenuDigit())) {
 			deleteStation(scanner);
-		} else if (inputLine.equals(FourMenu.SHOW.getMenuDigit())) {
+		} else if (inputLine.equals(MenuEnum.SHOW.getMenuDigit())) {
 			showStations(scanner);
-		} else if (inputLine.equals(FourMenu.BACK.getMenuDigit())) {
+		} else if (inputLine.equals(MenuEnum.BACK.getMenuDigit())) {
 			MainController.startMain(scanner);
 		}
 	}

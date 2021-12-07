@@ -6,7 +6,7 @@ import subway.domain.LineRepository;
 import subway.view.ErrorView;
 import subway.view.LineView;
 
-public class ViewValidChecker {
+public class LineValidChecker {
 	public static boolean checkAddLineName(String inputLine) {
 		try {
 			isNameDistinct(inputLine);

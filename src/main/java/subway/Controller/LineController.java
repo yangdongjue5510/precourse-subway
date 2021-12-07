@@ -4,15 +4,14 @@ import static subway.Constants.*;
 
 import java.util.Scanner;
 
-import subway.domain.Line;
 import subway.domain.LineRepository;
 import subway.domain.Station;
 import subway.domain.StationRepository;
-import subway.enums.FourMenu;
+import subway.enums.MenuEnum;
 import subway.service.LineService;
 import subway.validChecker.MenuValidChecker;
 import subway.validChecker.StationValidChecker;
-import subway.validChecker.ViewValidChecker;
+import subway.validChecker.LineValidChecker;
 import subway.view.CommonView;
 import subway.view.LineView;
 
@@ -31,13 +30,13 @@ public class LineController {
 	}
 
 	private static void findMenu(String inputLine, Scanner scanner) {
-		if (inputLine.equals(FourMenu.ADD.getMenuDigit())) {
+		if (inputLine.equals(MenuEnum.ADD.getMenuDigit())) {
 			addLine(scanner);
-		} else if (inputLine.equals(FourMenu.DELETE.getMenuDigit())) {
+		} else if (inputLine.equals(MenuEnum.DELETE.getMenuDigit())) {
 			deleteLine(scanner);
-		} else if (inputLine.equals(FourMenu.SHOW.getMenuDigit())) {
+		} else if (inputLine.equals(MenuEnum.SHOW.getMenuDigit())) {
 			showLine(scanner);
-		} else if (inputLine.equals(FourMenu.BACK.getMenuDigit())) {
+		} else if (inputLine.equals(MenuEnum.BACK.getMenuDigit())) {
 			MainController.startMain(scanner);
 		}
 	}
@@ -70,7 +69,7 @@ public class LineController {
 		String inputLine;
 		do {
 			inputLine = scanner.nextLine();
-		} while (!ViewValidChecker.checkAddLineName(inputLine));
+		} while (!LineValidChecker.checkAddLineName(inputLine));
 		return inputLine;
 	}
 

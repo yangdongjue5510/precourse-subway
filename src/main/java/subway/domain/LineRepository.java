@@ -44,4 +44,13 @@ public class LineRepository {
             .map(line -> line.getStations().get(line.getStations().size()-1).getName())
             .collect(Collectors.toList());
     }
- }
+
+    public static void addSectioninLine(Line line, Station station, int index) {
+        line.getStations().add(index-1, station);
+    }
+
+    public static void deleteStationInLine(Line line, Station station) {
+        int index = line.getStations().indexOf(station);
+        line.getStations().remove(index);
+    }
+}
