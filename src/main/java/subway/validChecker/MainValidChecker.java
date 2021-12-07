@@ -5,6 +5,7 @@ import static subway.Constants.*;
 import java.util.Arrays;
 
 import subway.exception.NotInMenuException;
+import subway.view.ErrorView;
 
 public class MainValidChecker {
 	public static boolean mainMenuExceptionCheck(String inputLine) {
@@ -12,6 +13,7 @@ public class MainValidChecker {
 			isValidMenuInput(inputLine);
 			return true;
 		} catch (IllegalArgumentException exception) {
+			ErrorView.mainMenuInputError();
 			return false;
 		}
 	}

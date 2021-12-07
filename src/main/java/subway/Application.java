@@ -10,6 +10,6 @@ public class Application {
         // TODO: 프로그램 구현
         MainController mainController = new MainController();
         mainController.startMain();
-        mainController.inputMain(scanner.nextLine());
+        mainController.inputMain(scanner);
     }
 }
