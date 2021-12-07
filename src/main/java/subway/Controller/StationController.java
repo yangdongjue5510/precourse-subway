@@ -2,7 +2,6 @@ package subway.Controller;
 
 import static subway.Constants.*;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 import subway.enums.StationMenu;
@@ -25,6 +24,8 @@ public class StationController {
 	private static void findMenu(String inputLine, Scanner scanner) {
 		if (inputLine.equals(StationMenu.ADD.getMenuDigit())) {
 			addStation(scanner);
+		} else if (inputLine.equals(StationMenu.DELETE.getMenuDigit())) {
+			deleteStation(scanner);
 		}
 	}
 
@@ -36,6 +37,18 @@ public class StationController {
 			addStation(scanner);
 		} else if (addTrial) {
 			StationView.addStationSuccess();
+			MainController.startMain(scanner);
+		}
+	}
+
+	private static void deleteStation(Scanner scanner) {
+		StationView.deleteStationView();
+		boolean deleteTrial = StationService.deleteStation(inputStationName(scanner));
+		if (!deleteTrial) {
+			ErrorView.deleteStationError();
+			deleteStation(scanner);
+		} else if (deleteTrial) {
+			StationView.deleteStationSuccess();
 			MainController.startMain(scanner);
 		}
 	}

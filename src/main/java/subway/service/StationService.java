@@ -13,6 +13,14 @@ public class StationService {
 		return true;
 	}
 
+	public static boolean deleteStation(String stationName) {
+		if (containsStation(stationName)) {
+			StationRepository.deleteStation(stationName);
+			return true;
+		}
+		return false;
+	}
+
 	private static boolean containsStation(String name) {
 		long count = StationRepository.stations().stream()
 			.filter(station -> station.getName().equals(name))

@@ -9,4 +9,7 @@ public class ErrorView {
 	public static void addStationError() {
 		System.out.println(ERROR_ADD_STATION);
 	}
+	public static void deleteStationError() {
+		System.out.println(ERROR_DELETE_STATION);
+	}
 }
