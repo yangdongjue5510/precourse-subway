@@ -24,4 +24,5 @@ public class Constants {
 		+ "1. 구간 등록\n"
 		+ "2. 구간 삭제\n"
 		+ "B. 돌아가기\n";
+	public static final String MESSAGE_LIST_FIRST = HASH_TAG + " 지하철 노선도";
 }
