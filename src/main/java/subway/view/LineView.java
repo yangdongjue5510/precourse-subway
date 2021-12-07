@@ -35,7 +35,7 @@ public class LineView {
 		lines.stream().forEach(line -> showLine(line));
 	}
 
-	private static void showLine(Line line) {
+	public static void showLine(Line line) {
 		System.out.println("[INFO] " + line.getName());
 	}
 }

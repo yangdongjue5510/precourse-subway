@@ -55,7 +55,6 @@ public class SectionController {
 		Line line = inputLine(scanner);
 		StationView.addStationToLine();
 		Station station = inputStation(scanner);
-		SectionView.addSectionIndexView();
 		int index = inputIndex(scanner);
 		LineRepository.addSectioninLine(line, station, index);
 		SectionView.addSectionSuccessView();
@@ -63,12 +62,10 @@ public class SectionController {
 	}
 
 	private static Line inputLine(Scanner scanner) {
-		SectionView.addSectionView();
 		return LineRepository.findLineByName(scanner.nextLine());
 	}
 
 	private static Station inputStation(Scanner scanner) {
-		StationView.addStationToLine();
 		return StationRepository.findStationById(scanner.nextLine());
 	}
 

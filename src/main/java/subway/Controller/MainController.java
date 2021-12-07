@@ -30,7 +30,7 @@ public class MainController {
 		} else if (menu.equals(MENU_SECTION)) {
 			SectionController.startSection(scanner);
 		} else if (menu.equals(MENU_LIST)) {
-			ListController.startList();
+			ListController.startList(scanner);
 		}
 	}
 
