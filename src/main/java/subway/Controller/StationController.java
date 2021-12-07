@@ -2,13 +2,16 @@ package subway.Controller;
 
 import static subway.Constants.*;
 
+import java.util.List;
 import java.util.Scanner;
 
+import subway.domain.Station;
 import subway.enums.StationMenu;
 import subway.service.StationService;
 import subway.validChecker.StationValidChecker;
 import subway.view.CommonView;
 import subway.view.ErrorView;
+import subway.view.ListView;
 import subway.view.StationView;
 
 public class StationController {
@@ -26,6 +29,19 @@ public class StationController {
 			addStation(scanner);
 		} else if (inputLine.equals(StationMenu.DELETE.getMenuDigit())) {
 			deleteStation(scanner);
+		} else if (inputLine.equals(StationMenu.SHOW.getMenuDigit())) {
+			showStations(scanner);
+		}
+	}
+
+	private static void showStations(Scanner scanner) {
+		List<Station> allStations = StationService.getAllStations();
+		if (allStations == null) {
+
+		} else if (allStations != null) {
+			ListView.displayListView();
+			allStations.stream().forEach(station -> StationView.showStation(station));
+			MainController.startMain(scanner);
 		}
 	}
 

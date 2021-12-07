@@ -2,6 +2,8 @@ package subway.view;
 
 import static subway.Constants.*;
 
+import subway.domain.Station;
+
 public class StationView {
 	public static void addStationView() {
 		System.out.println(MESSAGE_ADD_STATION);
@@ -17,5 +19,9 @@ public class StationView {
 
 	public static void deleteStationSuccess() {
 		System.out.println(INFO_DELETE_STATION);
+	}
+
+	public static void showStation(Station station) {
+		System.out.println(INFO + station.getName());
 	}
 }
