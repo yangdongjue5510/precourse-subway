@@ -16,7 +16,7 @@ public class StationService {
 
 	public static boolean deleteStation(String stationName) {
 		if (StationRepository.containsStation(stationName)
-			&& LineService.isFirstOrEnd(StationRepository.findStationById(stationName))) {
+			&& !LineService.isFirstOrEnd(StationRepository.findStationById(stationName))) {
 			StationRepository.deleteStation(stationName);
 			return true;
 		}

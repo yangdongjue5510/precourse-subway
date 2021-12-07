@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class LineRepository {
     private static final List<Line> lines = new ArrayList<>();
@@ -25,4 +26,16 @@ public class LineRepository {
             filter(line -> line.getName().equals(name))
             .findFirst().orElseThrow();
     }
-}
+
+    public static List<String> getFirstStationNamesInLines() {
+        return lines().stream()
+            .map(line -> line.getStations().get(0).getName())
+            .collect(Collectors.toList());
+    }
+
+    public static List<String> getLastStationNamesInLines() {
+        return lines().stream()
+            .map(line -> line.getStations().get(line.getStations().size()-1).getName())
+            .collect(Collectors.toList());
+    }
+ }
