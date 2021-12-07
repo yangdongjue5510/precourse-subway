@@ -4,6 +4,7 @@ import static subway.Constants.*;
 
 import java.util.Scanner;
 
+import subway.domain.Line;
 import subway.domain.LineRepository;
 import subway.domain.Station;
 import subway.domain.StationRepository;
@@ -33,14 +34,24 @@ public class LineController {
 		if (inputLine.equals(FourMenu.ADD.getMenuDigit())) {
 			addLine(scanner);
 		} else if (inputLine.equals(FourMenu.DELETE.getMenuDigit())) {
-			//TODO
-			//deleteLine(scanner);
+			deleteLine(scanner);
 		} else if (inputLine.equals(FourMenu.SHOW.getMenuDigit())) {
-			//TODO
-			//showLine(scanner);
+			showLine(scanner);
 		} else if (inputLine.equals(FourMenu.BACK.getMenuDigit())) {
 			MainController.startMain(scanner);
 		}
+	}
+
+	private static void showLine(Scanner scanner) {
+		LineView.showLines(LineRepository.lines());
+		MainController.startMain(scanner);
+	}
+
+	private static void deleteLine(Scanner scanner) {
+		LineView.deleteLineView();
+		LineService.deleteLine(scanner.nextLine());
+		LineView.deleteLineSuccess();
+		MainController.startMain(scanner);
 	}
 
 	private static void addLine(Scanner scanner) {

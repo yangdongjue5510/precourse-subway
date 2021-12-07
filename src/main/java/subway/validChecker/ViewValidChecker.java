@@ -9,11 +9,24 @@ import subway.view.LineView;
 public class ViewValidChecker {
 	public static boolean checkAddLineName(String inputLine) {
 		try {
-			LineRepository.findLineByName(inputLine);
+			isNameDistinct(inputLine);
+			isNameLongerThanTwo(inputLine);
+			return true;
+		} catch (Exception exception) {
 			ErrorView.lineError();
 			return false;
-		} catch (NoSuchElementException exception) {
-			return true;
+		}
+	}
+
+	private static void isNameDistinct(String name) {
+		if (LineRepository.countLineByName(name) != 0) {
+			throw new IllegalArgumentException();
+		}
+	}
+
+	private static void isNameLongerThanTwo(String name) {
+		if (name.length() < 2) {
+			throw new IllegalArgumentException();
 		}
 	}
 }

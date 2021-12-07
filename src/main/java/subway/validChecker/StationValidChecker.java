@@ -2,14 +2,13 @@ package subway.validChecker;
 
 import java.util.NoSuchElementException;
 
-import subway.domain.Station;
 import subway.domain.StationRepository;
 import subway.view.ErrorView;
 
 public class StationValidChecker {
 	public static boolean stationNameLengthCheck(String name) {
 		try {
-			isValidStationName(name);
+			isNameLongerThanTwo(name);
 			return true;
 		} catch (IllegalArgumentException exception) {
 			ErrorView.addStationError();
@@ -27,7 +26,7 @@ public class StationValidChecker {
 		}
 	}
 
-	private static void isValidStationName(String name) {
+	private static void isNameLongerThanTwo(String name) {
 		if (name.length() < 2) {
 			throw new IllegalArgumentException();
 		}

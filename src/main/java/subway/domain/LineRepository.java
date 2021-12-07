@@ -22,9 +22,15 @@ public class LineRepository {
     }
 
     public static Line findLineByName(String name) {
-        return lines().stream().
-            filter(line -> line.getName().equals(name))
+        return lines().stream()
+            .filter(line -> line.getName().equals(name))
             .findFirst().orElseThrow();
+    }
+
+    public static long countLineByName(String name) {
+        return lines.stream()
+            .filter(line -> line.getName().equals(name))
+            .count();
     }
 
     public static List<String> getFirstStationNamesInLines() {

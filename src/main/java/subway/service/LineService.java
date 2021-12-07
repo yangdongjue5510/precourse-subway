@@ -19,4 +19,8 @@ public class LineService {
 		line.getStations().add(start);
 		line.getStations().add(end);
 	}
+
+	public static void deleteLine(String name) {
+		LineRepository.deleteLineByName(name);
+	}
 }
