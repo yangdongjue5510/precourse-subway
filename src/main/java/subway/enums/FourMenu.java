@@ -1,6 +1,6 @@
 package subway.enums;
 
-public enum StationMenu {
+public enum FourMenu {
 	ADD("1"),
 	DELETE("2"),
 	SHOW("3"),
@@ -8,7 +8,7 @@ public enum StationMenu {
 
 	private String menuDigit;
 
-	StationMenu(String menuNum) {
+	FourMenu(String menuNum) {
 		this.menuDigit = menuNum;
 	}
 

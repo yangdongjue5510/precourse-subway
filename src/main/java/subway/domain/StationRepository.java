@@ -19,4 +19,20 @@ public class StationRepository {
     public static boolean deleteStation(String name) {
         return stations.removeIf(station -> Objects.equals(station.getName(), name));
     }
+
+    public static Station findStationById(String name) {
+        return stations().stream()
+            .filter(station -> station.getName().equals(name))
+            .findFirst().orElseThrow();
+    }
+
+    public static boolean containsStation(String name) {
+        long count = StationRepository.stations().stream()
+            .filter(station -> station.getName().equals(name))
+            .count();
+        if (count > 0) {
+            return true;
+        }
+        return false;
+    }
 }

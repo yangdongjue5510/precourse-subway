@@ -6,8 +6,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import subway.domain.Station;
-import subway.enums.StationMenu;
+import subway.enums.FourMenu;
 import subway.service.StationService;
+import subway.validChecker.MenuValidChecker;
 import subway.validChecker.StationValidChecker;
 import subway.view.CommonView;
 import subway.view.ErrorView;
@@ -17,20 +18,26 @@ import subway.view.StationView;
 public class StationController {
 	public static void startStation(Scanner scanner) {
 		CommonView.displayMenu(MESSAGE_STATION_MENU);
-		findMenu(inputStationMenu(scanner), scanner);
+		findMenu(inputMenu(scanner), scanner);
 	}
 
-	private static String inputStationMenu(Scanner scanner) {
-		return scanner.nextLine();
+	private static String inputMenu(Scanner scanner) {
+		String inputLine;
+		do {
+			inputLine = scanner.nextLine();
+		} while(!MenuValidChecker.fourMenuExceptionCheck(inputLine));
+		return inputLine;
 	}
 
 	private static void findMenu(String inputLine, Scanner scanner) {
-		if (inputLine.equals(StationMenu.ADD.getMenuDigit())) {
+		if (inputLine.equals(FourMenu.ADD.getMenuDigit())) {
 			addStation(scanner);
-		} else if (inputLine.equals(StationMenu.DELETE.getMenuDigit())) {
+		} else if (inputLine.equals(FourMenu.DELETE.getMenuDigit())) {
 			deleteStation(scanner);
-		} else if (inputLine.equals(StationMenu.SHOW.getMenuDigit())) {
+		} else if (inputLine.equals(FourMenu.SHOW.getMenuDigit())) {
 			showStations(scanner);
+		} else if (inputLine.equals(FourMenu.BACK.getMenuDigit())) {
+			MainController.startMain(scanner);
 		}
 	}
 

@@ -13,7 +13,7 @@ public class MainValidChecker {
 			isValidMenuInput(inputLine);
 			return true;
 		} catch (IllegalArgumentException exception) {
-			ErrorView.mainMenuInputError();
+			ErrorView.menuInputError();
 			return false;
 		}
 	}

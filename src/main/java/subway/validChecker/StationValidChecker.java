@@ -1,5 +1,9 @@
 package subway.validChecker;
 
+import java.util.NoSuchElementException;
+
+import subway.domain.Station;
+import subway.domain.StationRepository;
 import subway.view.ErrorView;
 
 public class StationValidChecker {
@@ -9,6 +13,16 @@ public class StationValidChecker {
 			return true;
 		} catch (IllegalArgumentException exception) {
 			ErrorView.addStationError();
+			return false;
+		}
+	}
+
+	public static boolean stationExist(String name) {
+		try {
+			StationRepository.findStationById(name);
+			return true;
+		} catch (NoSuchElementException exception) {
+			ErrorView.stationError();
 			return false;
 		}
 	}
