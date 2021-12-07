@@ -25,6 +25,8 @@ public class MainController {
 	private static void findMenu(String menu, Scanner scanner) {
 		if (menu.equals(MENU_STATION)) {
 			StationController.startStation(scanner);
+		} else if (menu.equals(MENU_LINE)) {
+			LineController.startLine(scanner);
 		}
 	}
 
